@@ -8,7 +8,7 @@
 │                 ▘▘ ▝▝                 │                                      │
 │                                       │                                      │
 │        Sonnet 4.5 · Claude Pro        │                                      │
-│   D:\Users\user\Documents\rust\weni   │                                      │
+│   D:\Users\user\Documents\rust\wenfo   │                                      │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 ══════════════════ Conversation compacted · ctrl+o for history ═════════════════
   ⎿  Read CHANGELOG.md (42 lines)
@@ -33,7 +33,7 @@
   ⎿  Updated LICENSE with 1 addition and 1 removal                      
        1    MIT License
        2    
-       3 -  Copyright (c) 2025 weni Contributors
+       3 -  Copyright (c) 2025 wenfo Contributors
        3 +  Copyright (c) 2025 wen
        4    
        5    Permission is hereby granted, free of charge, to any person 
@@ -43,7 +43,7 @@
 
 ● Update(Cargo.toml)
   ⎿  Updated Cargo.toml with 6 additions and 1 removal          
-        2    name = "weni"
+        2    name = "wenfo"
         3    version = "0.1.0"
         4    edition = "2021"
         5 -  authors = ["Your Name"]
@@ -51,8 +51,8 @@
         6    description = "A lightweight cross-platform system 
             information CLI tool"
         7 +  license = "MIT"
-        8 +  repository = "https://github.com/wen/weni"
-        9 +  homepage = "https://github.com/wen/weni"
+        8 +  repository = "https://github.com/wen/wenfo"
+        9 +  homepage = "https://github.com/wen/wenfo"
        10 +  keywords = ["cli", "system-info", "sysinfo", 
           + "cross-platform", "monitoring"]
        11 +  categories = ["command-line-utilities"]
@@ -96,19 +96,19 @@
      … +7 lines (ctrl+o to expand)
 
 ● Bash(git remote -v)
-  ⎿  origin	https://github.com/superyngo/weni.git (fetch
-     origin	https://github.com/superyngo/weni.git (push)
+  ⎿  origin	https://github.com/superyngo/wenfo.git (fetch
+     origin	https://github.com/superyngo/wenfo.git (push)
 
 ● Bash(git push -u origin main)
   ⎿  branch 'main' set up to track 'origin/main'.
-     To https://github.com/superyngo/weni.git
+     To https://github.com/superyngo/wenfo.git
       * [new branch]      main -> main
 
-● Bash(git tag -a v0.1.0 -m "weni v0.1.0 - Initial Release…)
+● Bash(git tag -a v0.1.0 -m "wenfo v0.1.0 - Initial Release…)
   ⎿  (No content)
 
 ● Bash(git push origin v0.1.0)
-  ⎿  To https://github.com/superyngo/weni.git
+  ⎿  To https://github.com/superyngo/wenfo.git
       * [new tag]         v0.1.0 -> v0.1.0
 
 ● 已完成所有 GitHub 設置和發布準備工作：
@@ -132,8 +132,8 @@
 
   authors = ["wen"]
   license = "MIT"
-  repository = "https://github.com/wen/weni"
-  homepage = "https://github.com/wen/weni"
+  repository = "https://github.com/wen/wenfo"
+  homepage = "https://github.com/wen/wenfo"
   keywords = ["cli", "system-info", "sysinfo", "cross-platform",
   "monitoring"]
   categories = ["command-line-utilities"]
@@ -147,19 +147,19 @@
   發布內容
 
   標籤 v0.1.0 已推送到
-  https://github.com/superyngo/weni.git，將自動構建以下版本：
+  https://github.com/superyngo/wenfo.git，將自動構建以下版本：
 
   Linux:
-  - weni-linux-x86_64.tar.gz (glibc)
-  - weni-linux-x86_64-musl.tar.gz (musl, 靜態鏈接)
-  - weni-linux-aarch64.tar.gz (ARM64)
+  - wenfo-linux-x86_64.tar.gz (glibc)
+  - wenfo-linux-x86_64-musl.tar.gz (musl, 靜態鏈接)
+  - wenfo-linux-aarch64.tar.gz (ARM64)
 
   Windows:
-  - weni-windows-x86_64.exe
+  - wenfo-windows-x86_64.exe
 
   macOS:
-  - weni-macos-x86_64.tar.gz (Intel)
-  - weni-macos-aarch64.tar.gz (Apple Silicon)
+  - wenfo-macos-x86_64.tar.gz (Intel)
+  - wenfo-macos-aarch64.tar.gz (Apple Silicon)
 
   您可以前往 GitHub Actions 頁面查看構建進度，完成後將在 Releases
   頁面看到所有可下載的二進制文件和 SHA256SUMS 校驗文件。
@@ -184,42 +184,42 @@ ase.yml")建構所有targets
        24 +            # Linux builds - 使用 Cargo.toml 中的激進優化設定
        25              - os: ubuntu-latest
        26                target: x86_64-unknown-linux-gnu
-       27                artifact_name: weni
-       28                asset_name: weni-linux-x86_64
+       27                artifact_name: wenfo
+       28                asset_name: wenfo-linux-x86_64
        29              - os: ubuntu-latest
        30 +              target: i686-unknown-linux-gnu
-       31 +              artifact_name: weni
-       32 +              asset_name: weni-linux-i686
+       31 +              artifact_name: wenfo
+       32 +              asset_name: wenfo-linux-i686
        33 +            - os: ubuntu-latest
        34                target: x86_64-unknown-linux-musl
-       35                artifact_name: weni
-       36                asset_name: weni-linux-x86_64-musl
+       35                artifact_name: wenfo
+       36                asset_name: wenfo-linux-x86_64-musl
        37              - os: ubuntu-latest
        38 +              target: i686-unknown-linux-musl
-       39 +              artifact_name: weni
-       40 +              asset_name: weni-linux-i686-musl
+       39 +              artifact_name: wenfo
+       40 +              asset_name: wenfo-linux-i686-musl
        41 +            - os: ubuntu-latest
        42 +              target: armv7-unknown-linux-gnueabihf
-       43 +              artifact_name: weni
-       44 +              asset_name: weni-linux-armv7
+       43 +              artifact_name: wenfo
+       44 +              asset_name: wenfo-linux-armv7
        45 +            - os: ubuntu-latest
        46 +              target: armv7-unknown-linux-musleabihf
-       47 +              artifact_name: weni
-       48 +              asset_name: weni-linux-armv7-musl
+       47 +              artifact_name: wenfo
+       48 +              asset_name: wenfo-linux-armv7-musl
        49 +            - os: ubuntu-latest
        50                target: aarch64-unknown-linux-gnu
-       51                artifact_name: weni
-       52                asset_name: weni-linux-aarch64
+       51                artifact_name: wenfo
+       52                asset_name: wenfo-linux-aarch64
        53 -            # Windows builds
        53 +            - os: ubuntu-latest
        54 +              target: aarch64-unknown-linux-musl
-       55 +              artifact_name: weni
-       56 +              asset_name: weni-linux-aarch64-musl
+       55 +              artifact_name: wenfo
+       56 +              asset_name: wenfo-linux-aarch64-musl
        57 +            # Windows builds - 使用溫和優化以避免防毒軟體誤報
        58              - os: windows-latest
        59                target: x86_64-pc-windows-msvc
-       60                artifact_name: weni.exe
-       61                asset_name: weni-windows-x86_64.exe
+       60                artifact_name: wenfo.exe
+       61                asset_name: wenfo-windows-x86_64.exe
        62                rustflags: "-C target-feature=+crt-static"
        63 -            # macOS builds
        64 -            - os: macos-latest
@@ -230,8 +230,8 @@ ase.yml")建構所有targets
        67 +              panic: "unwind"
        68 +            - os: windows-latest
        69 +              target: i686-pc-windows-msvc
-       70 +              artifact_name: weni.exe
-       71 +              asset_name: weni-windows-i686.exe
+       70 +              artifact_name: wenfo.exe
+       71 +              asset_name: wenfo-windows-i686.exe
        72 +              rustflags: "-C target-feature=+crt-static"
        73 +              opt_level: "3"
        74 +              lto: "thin"
@@ -241,8 +241,8 @@ ase.yml")建構所有targets
        78 +            # macOS builds - 使用 Cargo.toml 中的激進優化設定
        79 +            - os: macos-15-intel
        80                target: x86_64-apple-darwin
-       81                artifact_name: weni
-       82                asset_name: weni-macos-x86_64
+       81                artifact_name: wenfo
+       82                asset_name: wenfo-macos-x86_64
 
 ● Update(.github\workflows\release.yml)
   ⎿  Updated .github\workflows\release.yml with 60 additions and 10 removal
@@ -497,12 +497,12 @@ ase.yml")建構所有targets
 
 ● Bash(git tag -d v0.1.0 && git push origin :refs/tags/v0.1.0 && git push)
   ⎿  Deleted tag 'v0.1.0' (was 2320971)      
-     To https://github.com/superyngo/weni.git
+     To https://github.com/superyngo/wenfo.git
       - [deleted]         v0.1.0
      … +2 lines (ctrl+o to expand)
 
-● Bash(git tag -a v0.1.0 -m "weni v0.1.0 - Initial Release…)
-  ⎿  To https://github.com/superyngo/weni.git
+● Bash(git tag -a v0.1.0 -m "wenfo v0.1.0 - Initial Release…)
+  ⎿  To https://github.com/superyngo/wenfo.git
       * [new tag]         v0.1.0 -> v0.1.0
 
 ● Bash(gh run list --workflow=release.yml --limit 3)
@@ -676,36 +676,36 @@ ase.yml")建構所有targets
           + X11 dependency
        25              - os: ubuntu-latest
        26                target: x86_64-unknown-linux-gnu
-       27                artifact_name: weni
-       28                asset_name: weni-linux-x86_64
+       27                artifact_name: wenfo
+       28                asset_name: wenfo-linux-x86_64
        29              - os: ubuntu-latest
        30 -              target: i686-unknown-linux-gnu
-       31 -              artifact_name: weni
-       32 -              asset_name: weni-linux-i686
+       31 -              artifact_name: wenfo
+       32 -              asset_name: wenfo-linux-i686
        33 -            - os: ubuntu-latest
        30                target: x86_64-unknown-linux-musl
-       31                artifact_name: weni
-       32                asset_name: weni-linux-x86_64-musl
+       31                artifact_name: wenfo
+       32                asset_name: wenfo-linux-x86_64-musl
        33 -            - os: ubuntu-latest
        34 -              target: i686-unknown-linux-musl
-       35 -              artifact_name: weni
-       36 -              asset_name: weni-linux-i686-musl
+       35 -              artifact_name: wenfo
+       36 -              asset_name: wenfo-linux-i686-musl
        37 -            - os: ubuntu-latest
        38 -              target: armv7-unknown-linux-gnueabihf
-       39 -              artifact_name: weni
-       40 -              asset_name: weni-linux-armv7
+       39 -              artifact_name: wenfo
+       40 -              asset_name: wenfo-linux-armv7
        41 -            - os: ubuntu-latest
        42 -              target: armv7-unknown-linux-musleabihf
-       43 -              artifact_name: weni
-       44 -              asset_name: weni-linux-armv7-musl
+       43 -              artifact_name: wenfo
+       44 -              asset_name: wenfo-linux-armv7-musl
        45 -            - os: ubuntu-latest
        46 -              target: aarch64-unknown-linux-gnu
-       47 -              artifact_name: weni
-       48 -              asset_name: weni-linux-aarch64
+       47 -              artifact_name: wenfo
+       48 -              asset_name: wenfo-linux-aarch64
        49 -            - os: ubuntu-latest
        50 -              target: aarch64-unknown-linux-musl
-       51 -              artifact_name: weni
-       52 -              asset_name: weni-linux-aarch64-musl
+       51 -              artifact_name: wenfo
+       52 -              asset_name: wenfo-linux-aarch64-musl
        33              # Windows builds - 使用溫和優化以避免防毒軟體誤報
        34              - os: windows-latest
        35                target: x86_64-pc-windows-msvc
@@ -715,8 +715,8 @@ ase.yml")建構所有targets
        67                panic: "unwind"
        68 -            - os: windows-latest
        69 -              target: i686-pc-windows-msvc
-       70 -              artifact_name: weni.exe
-       71 -              asset_name: weni-windows-i686.exe
+       70 -              artifact_name: wenfo.exe
+       71 -              asset_name: wenfo-windows-i686.exe
        72 -              rustflags: "-C target-feature=+crt-static"
        73 -              opt_level: "3"
        74 -              lto: "thin"
@@ -958,7 +958,7 @@ ase.yml")建構所有targets
        18    # CLI & serialization
        19    pico-args = "0.5"
 
-● Bash(rm "D:\Users\user\Documents\rust\weni\src\collectors\display.rs")
+● Bash(rm "D:\Users\user\Documents\rust\wenfo\src\collectors\display.rs")
   ⎿  (No content)
 
 ● Read(src\collectors\mod.rs)
@@ -1047,14 +1047,14 @@ ase.yml")建構所有targets
             (default: 2)
      ...
         97    EXAMPLES:
-        98        weni                        # Show all information
-        99        weni --cpu --memory         # Show only CPU and memory
-       100 -      weni --display              # Show monitor information
-       100 +      weni --temp                 # Show temperature 
+        98        wenfo                        # Show all information
+        99        wenfo --cpu --memory         # Show only CPU and memory
+       100 -      wenfo --display              # Show monitor information
+       100 +      wenfo --temp                 # Show temperature 
            + information
-       101        weni --json                 # Output all info as JSON
-       102        weni --watch                # Live monitoring mode
-       103        weni --watch --interval 5   # Monitor with 5 second 
+       101        wenfo --json                 # Output all info as JSON
+       102        wenfo --watch                # Live monitoring mode
+       103        wenfo --watch --interval 5   # Monitor with 5 second 
              interval
 
 ● 現在讓我更新 main.rs 和 formatter 來移除 display 相關代碼：
@@ -1070,7 +1070,7 @@ ase.yml")建構所有targets
   ⎿  Updated src\main.rs with 1 addition and 1 removal           
        3    use std::thread;
        4    use std::time::Duration;
-       5    use weni::{
+       5    use wenfo::{
        6 -      BatteryInfo, DisksInfo, NetworkInfo, SystemInfo, 
          -  TemperatureInfo, DisplayInfo,
        6 +      BatteryInfo, DisksInfo, NetworkInfo, SystemInfo, 
@@ -1344,36 +1344,36 @@ ase.yml")建構所有targets
        24 +            # Linux builds
        25              - os: ubuntu-latest
        26                target: x86_64-unknown-linux-gnu
-       27                artifact_name: weni
-       28                asset_name: weni-linux-x86_64
+       27                artifact_name: wenfo
+       28                asset_name: wenfo-linux-x86_64
        29              - os: ubuntu-latest
        30 +              target: i686-unknown-linux-gnu
-       31 +              artifact_name: weni
-       32 +              asset_name: weni-linux-i686
+       31 +              artifact_name: wenfo
+       32 +              asset_name: wenfo-linux-i686
        33 +            - os: ubuntu-latest
        34                target: x86_64-unknown-linux-musl
-       35                artifact_name: weni
-       36                asset_name: weni-linux-x86_64-musl
+       35                artifact_name: wenfo
+       36                asset_name: wenfo-linux-x86_64-musl
        37 +            - os: ubuntu-latest
        38 +              target: i686-unknown-linux-musl
-       39 +              artifact_name: weni
-       40 +              asset_name: weni-linux-i686-musl
+       39 +              artifact_name: wenfo
+       40 +              asset_name: wenfo-linux-i686-musl
        41 +            - os: ubuntu-latest
        42 +              target: armv7-unknown-linux-gnueabihf
-       43 +              artifact_name: weni
-       44 +              asset_name: weni-linux-armv7
+       43 +              artifact_name: wenfo
+       44 +              asset_name: wenfo-linux-armv7
        45 +            - os: ubuntu-latest
        46 +              target: armv7-unknown-linux-musleabihf
-       47 +              artifact_name: weni
-       48 +              asset_name: weni-linux-armv7-musl
+       47 +              artifact_name: wenfo
+       48 +              asset_name: wenfo-linux-armv7-musl
        49 +            - os: ubuntu-latest
        50 +              target: aarch64-unknown-linux-gnu
-       51 +              artifact_name: weni
-       52 +              asset_name: weni-linux-aarch64
+       51 +              artifact_name: wenfo
+       52 +              asset_name: wenfo-linux-aarch64
        53 +            - os: ubuntu-latest
        54 +              target: aarch64-unknown-linux-musl
-       55 +              artifact_name: weni
-       56 +              asset_name: weni-linux-aarch64-musl
+       55 +              artifact_name: wenfo
+       56 +              asset_name: wenfo-linux-aarch64-musl
        57              # Windows builds - 使用溫和優化以避免防毒軟體誤報
        58              - os: windows-latest
        59                target: x86_64-pc-windows-msvc
@@ -1384,8 +1384,8 @@ ase.yml")建構所有targets
        44 -            # macOS builds - 使用 Cargo.toml 中的激進優化設定
        44 +            - os: windows-latest
        45 +              target: i686-pc-windows-msvc
-       46 +              artifact_name: weni.exe
-       47 +              asset_name: weni-windows-i686.exe
+       46 +              artifact_name: wenfo.exe
+       47 +              asset_name: wenfo-windows-i686.exe
        48 +              rustflags: "-C target-feature=+crt-static"
        49 +              opt_level: "3"
        50 +              lto: "thin"
@@ -1395,7 +1395,7 @@ ase.yml")建構所有targets
        54 +            # macOS builds
        55              - os: macos-15-intel
        56                target: x86_64-apple-darwin
-       57                artifact_name: weni
+       57                artifact_name: wenfo
      ...
         60            with:
         61              targets: ${{ matrix.target }}
@@ -1536,26 +1536,26 @@ ase.yml")建構所有targets
      ...
        192    
        193                ### Windows
-       194                - `weni-windows-x86_64.exe` - Windows 64-bit
-       195 +              - `weni-windows-i686.exe` - Windows 32-bit
+       194                - `wenfo-windows-x86_64.exe` - Windows 64-bit
+       195 +              - `wenfo-windows-i686.exe` - Windows 32-bit
        196    
        197                ### Linux
-       198                - `weni-linux-x86_64.tar.gz` - Linux x86_64 
+       198                - `wenfo-linux-x86_64.tar.gz` - Linux x86_64 
              (glibc)
-       199 +              - `weni-linux-i686.tar.gz` - Linux i686 (glibc)
-       200                - `weni-linux-x86_64-musl.tar.gz` - Linux 
+       199 +              - `wenfo-linux-i686.tar.gz` - Linux i686 (glibc)
+       200                - `wenfo-linux-x86_64-musl.tar.gz` - Linux 
              x86_64 (musl, static)
-       201 +              - `weni-linux-i686-musl.tar.gz` - Linux i686 
+       201 +              - `wenfo-linux-i686-musl.tar.gz` - Linux i686 
            + (musl, static)
-       202 +              - `weni-linux-armv7.tar.gz` - Linux ARMv7
-       203 +              - `weni-linux-armv7-musl.tar.gz` - Linux ARMv7 
+       202 +              - `wenfo-linux-armv7.tar.gz` - Linux ARMv7
+       203 +              - `wenfo-linux-armv7-musl.tar.gz` - Linux ARMv7 
            + (musl, static)
-       204                - `weni-linux-aarch64.tar.gz` - Linux ARM64
-       205 +              - `weni-linux-aarch64-musl.tar.gz` - Linux 
+       204                - `wenfo-linux-aarch64.tar.gz` - Linux ARM64
+       205 +              - `wenfo-linux-aarch64-musl.tar.gz` - Linux 
            + ARM64 (musl, static)
        206    
        207                ### macOS
-       208                - `weni-macos-x86_64.tar.gz` - macOS Intel
+       208                - `wenfo-macos-x86_64.tar.gz` - macOS Intel
   ⎿  Weekly limit reached · resets 8am (Asia/Taipei) · /upgrade to Max or turn on
       /extra-usage
      /upgrade to increase your usage limit.

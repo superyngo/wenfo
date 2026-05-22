@@ -1,9 +1,11 @@
 use anyhow::Result;
 use colored::Colorize;
-use comfy_table::{Table, Row, Cell, presets::UTF8_FULL};
+use comfy_table::{presets::UTF8_FULL, Cell, Row, Table};
 use serde::Serialize;
 
-use crate::collectors::{SystemInfo, BatteryInfo, DisksInfo, NetworkInfo, TemperatureInfo, ProcessInfo, HostsInfo};
+use crate::collectors::{
+    BatteryInfo, DisksInfo, HostsInfo, NetworkInfo, ProcessInfo, SystemInfo, TemperatureInfo,
+};
 
 pub enum OutputFormat {
     Text,
@@ -21,6 +23,7 @@ struct AllInfo {
     hosts: Option<HostsInfo>,
 }
 
+#[allow(clippy::too_many_arguments)]
 pub fn display_info(
     system_info: SystemInfo,
     battery_info: Option<BatteryInfo>,
@@ -32,8 +35,24 @@ pub fn display_info(
     format: OutputFormat,
 ) -> Result<()> {
     match format {
-        OutputFormat::Text => display_text(&system_info, &battery_info, &disks_info, &network_info, &temp_info, &process_info, &hosts_info),
-        OutputFormat::Json => display_json(&system_info, &battery_info, &disks_info, &network_info, &temp_info, &process_info, &hosts_info),
+        OutputFormat::Text => display_text(
+            &system_info,
+            &battery_info,
+            &disks_info,
+            &network_info,
+            &temp_info,
+            &process_info,
+            &hosts_info,
+        ),
+        OutputFormat::Json => display_json(
+            &system_info,
+            &battery_info,
+            &disks_info,
+            &network_info,
+            &temp_info,
+            &process_info,
+            &hosts_info,
+        ),
     }
 }
 
@@ -46,7 +65,6 @@ fn display_text(
     process_info: &Option<ProcessInfo>,
     hosts_info: &Option<HostsInfo>,
 ) -> Result<()> {
-
     if let Some(os) = &system_info.os {
         println!("\n{}", "System Information".bold().cyan());
         let mut sys_table = Table::new();

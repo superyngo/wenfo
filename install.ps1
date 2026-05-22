@@ -1,6 +1,6 @@
 #!/usr/bin/env pwsh
-# weni Remote Installation Script for Windows
-# Usage: irm https://raw.githubusercontent.com/superyngo/weni/main/install.ps1 | iex
+# wenfo Remote Installation Script for Windows
+# Usage: irm https://raw.githubusercontent.com/superyngo/wenfo/main/install.ps1 | iex
 
 param(
     [switch]$Uninstall
@@ -15,8 +15,8 @@ function Write-Error { Write-Host $args -ForegroundColor Red }
 function Write-Warning { Write-Host $args -ForegroundColor Yellow }
 
 # Configuration
-$APP_NAME = "weni"
-$REPO = "superyngo/weni"
+$APP_NAME = "wenfo"
+$REPO = "superyngo/wenfo"
 $INSTALL_DIR = "$env:LOCALAPPDATA\Programs\$APP_NAME"
 $BIN_PATH = "$INSTALL_DIR\$APP_NAME.exe"
 
@@ -48,8 +48,8 @@ function Get-Architecture {
     }
 }
 
-function Install-weni {
-    Write-Info "=== weni Installation Script ==="
+function Install-wenfo {
+    Write-Info "=== wenfo Installation Script ==="
     Write-Info ""
 
     # Get latest release
@@ -135,8 +135,8 @@ function Install-weni {
     Write-Info "  irm https://raw.githubusercontent.com/$REPO/main/install.ps1 | iex -Uninstall"
 }
 
-function Uninstall-weni {
-    Write-Info "=== weni Uninstallation Script ==="
+function Uninstall-wenfo {
+    Write-Info "=== wenfo Uninstallation Script ==="
     Write-Info ""
 
     # Remove binary
@@ -175,7 +175,7 @@ function Uninstall-weni {
 
 # Main
 if ($Uninstall) {
-    Uninstall-weni
+    Uninstall-wenfo
 } else {
-    Install-weni
+    Install-wenfo
 }

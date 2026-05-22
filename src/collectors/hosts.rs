@@ -34,7 +34,10 @@ impl HostsInfo {
         }
     }
 
-    fn read_hosts_file(path: &str, filter_comments: bool) -> Result<Vec<HostEntry>, std::io::Error> {
+    fn read_hosts_file(
+        path: &str,
+        filter_comments: bool,
+    ) -> Result<Vec<HostEntry>, std::io::Error> {
         let content = fs::read_to_string(Path::new(path))?;
         let mut entries = Vec::new();
 

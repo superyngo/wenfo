@@ -37,24 +37,30 @@ impl BatteryInfo {
 
         let manager = match Manager::new() {
             Ok(m) => m,
-            Err(e) => return Self {
-                data: None,
-                error: Some(format!("Failed to initialize battery manager: {}", e)),
-            },
+            Err(e) => {
+                return Self {
+                    data: None,
+                    error: Some(format!("Failed to initialize battery manager: {}", e)),
+                }
+            }
         };
 
         let batteries: Vec<_> = match manager.batteries() {
             Ok(iter) => match iter.collect::<Result<Vec<_>, _>>() {
                 Ok(b) => b,
-                Err(e) => return Self {
+                Err(e) => {
+                    return Self {
+                        data: None,
+                        error: Some(format!("Failed to enumerate batteries: {}", e)),
+                    }
+                }
+            },
+            Err(e) => {
+                return Self {
                     data: None,
-                    error: Some(format!("Failed to enumerate batteries: {}", e)),
-                },
-            },
-            Err(e) => return Self {
-                data: None,
-                error: Some(format!("Failed to access batteries: {}", e)),
-            },
+                    error: Some(format!("Failed to access batteries: {}", e)),
+                }
+            }
         };
 
         if batteries.is_empty() {
@@ -75,7 +81,9 @@ impl BatteryInfo {
         }
         .to_string();
 
-        let percentage = battery.state_of_charge().get::<battery::units::ratio::percent>();
+        let percentage = battery
+            .state_of_charge()
+            .get::<battery::units::ratio::percent>();
 
         let time_to_full = battery.time_to_full().map(|duration| {
             let secs = duration.get::<battery::units::time::second>() as u64;
@@ -87,13 +95,15 @@ impl BatteryInfo {
             Self::format_duration(secs)
         });
 
-        let health = battery.state_of_health().get::<battery::units::ratio::percent>();
+        let health = battery
+            .state_of_health()
+            .get::<battery::units::ratio::percent>();
 
         let technology = format!("{:?}", battery.technology());
 
-        let temperature = battery.temperature().map(|t| {
-            t.get::<battery::units::thermodynamic_temperature::degree_celsius>()
-        });
+        let temperature = battery
+            .temperature()
+            .map(|t| t.get::<battery::units::thermodynamic_temperature::degree_celsius>());
 
         Self {
             data: Some(BatteryData {

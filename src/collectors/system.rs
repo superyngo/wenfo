@@ -1,5 +1,5 @@
 use serde::Serialize;
-use sysinfo::{System, CpuRefreshKind, MemoryRefreshKind, RefreshKind};
+use sysinfo::{CpuRefreshKind, MemoryRefreshKind, RefreshKind, System};
 
 #[derive(Debug, Clone, Serialize)]
 pub struct CpuInfo {
@@ -93,7 +93,7 @@ impl SystemInfo {
             "x86_64" => "64-bit (x86_64)".to_string(),
             "aarch64" => "64-bit (ARM64)".to_string(),
             "arm" => "32-bit (ARM)".to_string(),
-            other => format!("{}", other),
+            other => other.to_string(),
         };
 
         CpuInfo {

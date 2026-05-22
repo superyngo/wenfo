@@ -8,7 +8,7 @@
 │                 ▘▘ ▝▝                 │                                      │
 │                                       │                                      │
 │        Sonnet 4.5 · Claude Pro        │                                      │
-│   D:\Users\user\Documents\rust\weni   │                                      │
+│   D:\Users\user\Documents\rust\wenfo   │                                      │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 
 > 研究為何--battery資訊都沒有作用，原本應該只設定排除windows i686 
@@ -40,9 +40,9 @@ target不編譯
 
 ● 現在讓我測試一下 --battery 功能：
 
-● Bash(.\target\debug\weni.exe --battery)
+● Bash(.\target\debug\wenfo.exe --battery)
   ⎿  Error: Exit code 127
-     /usr/bin/bash: line 1: .targetdebugweni.exe: command not found
+     /usr/bin/bash: line 1: .targetdebugwenfo.exe: command not found
 
 ● Bash(rustc --version --verbose)
   ⎿  rustc 1.89.0 (29483883e 2025-08-04)                  
@@ -50,7 +50,7 @@ target不編譯
      commit-hash: 29483883eed69d5fb4db01964cdf2af4d86e9cb2
      … +4 lines (ctrl+o to expand)
 
-● Bash(target/debug/weni.exe --battery)
+● Bash(target/debug/wenfo.exe --battery)
   ⎿  (No content)
 
 ● Read(src\display\formatter.rs)
@@ -75,7 +75,7 @@ target上關閉不編譯，但在其他target上應該要編譯出來。
 
 ● 好的，battery crate 有被編譯進來。讓我測試一下實際執行時發生了什麼：
 
-● Bash(target/debug/weni.exe --battery --json)
+● Bash(target/debug/wenfo.exe --battery --json)
   ⎿  {                            
        "system": {
          "cpu": null,
@@ -114,7 +114,7 @@ target上關閉不編譯，但在其他target上應該要編譯出來。
 
 ● Write(examples\test_battery.rs)
   ⎿  Wrote 1 lines to examples\test_battery.rs                 
-     use weni::BatteryInfo;
+     use wenfo::BatteryInfo;
      fn main() {
          println!("Testing battery functionality...\n");
          match BatteryInfo::collect() {
@@ -182,7 +182,7 @@ target上關閉不編譯，但在其他target上應該要編譯出來。
 
   為何看起來「沒有作用」
 
-  執行 weni --battery 時返回 null 的原因是：
+  執行 wenfo --battery 時返回 null 的原因是：
   - 當前這台機器沒有檢測到電池（可能是桌面電腦）
   - 這是正常行為！BatteryInfo::collect() 在沒有電池時會返回 Ok(None)
 

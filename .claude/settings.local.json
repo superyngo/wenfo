@@ -11,7 +11,12 @@
       "Bash(.\\target\\debug\\weni.exe:*)",
       "Bash(rustc --version:*)",
       "Bash(target/debug/weni.exe:*)",
-      "Bash(cargo tree:*)"
+      "Bash(cargo tree:*)",
+      "Bash(git fetch *)",
+      "Bash(gh repo *)",
+      "Bash(git remote *)",
+      "Bash(./target/debug/wenfo -V)",
+      "Bash(./target/debug/wenfo --version)"
     ],
     "deny": [],
     "ask": []

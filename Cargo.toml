@@ -1,12 +1,12 @@
 [package]
-name = "weni"
-version = "0.2.0"
+name = "wenfo"
+version = "0.3.0"
 edition = "2021"
 authors = ["wen"]
 description = "A lightweight cross-platform system information CLI tool"
 license = "MIT"
-repository = "https://github.com/wen/weni"
-homepage = "https://github.com/wen/weni"
+repository = "https://github.com/wen/wenfo"
+homepage = "https://github.com/wen/wenfo"
 keywords = ["cli", "system-info", "sysinfo", "cross-platform", "monitoring"]
 categories = ["command-line-utilities"]
 

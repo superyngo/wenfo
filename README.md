@@ -1,4 +1,4 @@
-# Weni
+# Wenfo
 
 [English](#english) | [中文](#中文)
 
@@ -15,27 +15,27 @@ A lightweight cross-platform system information CLI tool written in Rust.
 **Linux/macOS:**
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/superyngo/weni/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/superyngo/wenfo/main/install.sh | bash
 ```
 
 **Windows (PowerShell as Administrator):**
 
 ```powershell
-irm https://raw.githubusercontent.com/superyngo/weni/main/install.ps1 | iex
+irm https://raw.githubusercontent.com/superyngo/wenfo/main/install.ps1 | iex
 ```
 
 The installer will:
 
 - Download the latest pre-compiled binary from GitHub releases
-- Install to `~/.local/bin` (Linux/macOS) or `%LOCALAPPDATA%\Programs\weni` (Windows)
+- Install to `~/.local/bin` (Linux/macOS) or `%LOCALAPPDATA%\Programs\wenfo` (Windows)
 - Add it to your PATH automatically
 
 ### Build from Source
 
 ```bash
 # Clone the repository
-git clone https://github.com/superyngo/weni.git
-cd weni
+git clone https://github.com/superyngo/wenfo.git
+cd wenfo
 
 # Build the release version
 cargo build --release
@@ -43,8 +43,8 @@ cargo build --release
 
 The executable will be located at:
 
-- Windows: `target/release/weni.exe`
-- Linux/macOS: `target/release/weni`
+- Windows: `target/release/wenfo.exe`
+- Linux/macOS: `target/release/wenfo`
 
 You can manually copy it to your preferred directory in PATH.
 
@@ -53,19 +53,19 @@ You can manually copy it to your preferred directory in PATH.
 **Linux/macOS:**
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/superyngo/weni/main/install.sh | bash -s uninstall
+curl -fsSL https://raw.githubusercontent.com/superyngo/wenfo/main/install.sh | bash -s uninstall
 ```
 
 **Windows (PowerShell):**
 
 ```powershell
-irm https://raw.githubusercontent.com/superyngo/weni/main/install.ps1 | iex -Uninstall
+irm https://raw.githubusercontent.com/superyngo/wenfo/main/install.ps1 | iex -Uninstall
 ```
 
 Or manually remove:
 
-- Linux/macOS: `rm ~/.local/bin/weni`
-- Windows: Remove `%LOCALAPPDATA%\Programs\weni` directory
+- Linux/macOS: `rm ~/.local/bin/wenfo`
+- Windows: Remove `%LOCALAPPDATA%\Programs\wenfo` directory
 
 ## Features
 
@@ -94,72 +94,72 @@ Or manually remove:
 
 ```bash
 # Display all information (includes top 10 processes by CPU)
-weni
+wenfo
 
 # Display specific information
-weni --cpu --memory
-weni --system
-weni --battery
-weni --disk
-weni --network
-weni --temp
-weni --process
-weni --hosts
+wenfo --cpu --memory
+wenfo --system
+wenfo --battery
+wenfo --disk
+wenfo --network
+wenfo --temp
+wenfo --process
+wenfo --hosts
 
 # Combine displays
-weni --cpu --memory --disk --temp
+wenfo --cpu --memory --disk --temp
 ```
 
 ### Process Monitoring
 
 ```bash
 # Show all running processes
-weni --process
+wenfo --process
 
 # Show top 10 processes (sorted by memory)
-weni --process --top 10
+wenfo --process --top 10
 
 # Show top 10 processes sorted by CPU usage
-weni --process --top 10 --sort-cpu
+wenfo --process --top 10 --sort-cpu
 ```
 
 ### Hosts File
 
 ```bash
 # Display hosts file (comments filtered)
-weni --hosts
+wenfo --hosts
 
 # Display hosts file with comments
-weni --hosts --show-comments
+wenfo --hosts --show-comments
 ```
 
 ### JSON Output
 
 ```bash
 # Output in JSON format (useful for scripting)
-weni --json
+wenfo --json
 
 # Output specific information as JSON
-weni --cpu --memory --json
+wenfo --cpu --memory --json
 ```
 
 ### Live Monitoring Mode
 
 ```bash
 # Start monitoring mode (updates every 2 seconds)
-weni --watch
+wenfo --watch
 
 # Custom update interval (5 seconds)
-weni --watch --interval 5
+wenfo --watch --interval 5
 
 # Monitor specific information
-weni --cpu --memory --watch
+wenfo --cpu --memory --watch
 ```
 
 ### Help
 
 ```bash
-weni --help
+wenfo --help
 ```
 
 ## Complete CLI Options
@@ -246,50 +246,50 @@ src/
 ### Example 1: Quick System Status Check
 
 ```bash
-weni --cpu --memory
+wenfo --cpu --memory
 ```
 
 ### Example 2: Check Disk Space
 
 ```bash
-weni --disk
+wenfo --disk
 ```
 
 ### Example 3: Monitor System Performance
 
 ```bash
-weni --cpu --memory --watch
+wenfo --cpu --memory --watch
 ```
 
 ### Example 4: Export Complete System Information to JSON
 
 ```bash
-weni --json > system-info.json
+wenfo --json > system-info.json
 ```
 
 ### Example 5: Check Network Traffic
 
 ```bash
-weni --network
+wenfo --network
 ```
 
 ### Example 6: Monitor System Temperature
 
 ```bash
-weni --temp
+wenfo --temp
 # Note: Temperature monitoring requires hardware and OS support, Linux typically has better support
 ```
 
 ### Example 7: Monitor Running Processes
 
 ```bash
-weni --process --top 10 --sort-cpu
+wenfo --process --top 10 --sort-cpu
 ```
 
 ### Example 8: View Hosts File
 
 ```bash
-weni --hosts
+wenfo --hosts
 ```
 
 ## License
@@ -309,27 +309,27 @@ MIT License
 **Linux/macOS:**
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/superyngo/weni/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/superyngo/wenfo/main/install.sh | bash
 ```
 
 **Windows (以管理員身份執行 PowerShell):**
 
 ```powershell
-irm https://raw.githubusercontent.com/superyngo/weni/main/install.ps1 | iex
+irm https://raw.githubusercontent.com/superyngo/wenfo/main/install.ps1 | iex
 ```
 
 安裝程式將會：
 
 - 從 GitHub releases 下載最新的預編譯二進制檔案
-- 安裝到 `~/.local/bin` (Linux/macOS) 或 `%LOCALAPPDATA%\Programs\weni` (Windows)
+- 安裝到 `~/.local/bin` (Linux/macOS) 或 `%LOCALAPPDATA%\Programs\wenfo` (Windows)
 - 自動加入到 PATH 環境變數
 
 ### 從原始碼編譯
 
 ```bash
 # 複製儲存庫
-git clone https://github.com/superyngo/weni.git
-cd weni
+git clone https://github.com/superyngo/wenfo.git
+cd wenfo
 
 # 編譯 release 版本
 cargo build --release
@@ -337,8 +337,8 @@ cargo build --release
 
 執行檔位於：
 
-- Windows: `target/release/weni.exe`
-- Linux/macOS: `target/release/weni`
+- Windows: `target/release/wenfo.exe`
+- Linux/macOS: `target/release/wenfo`
 
 您可以手動複製到 PATH 中的任何目錄。
 
@@ -347,19 +347,19 @@ cargo build --release
 **Linux/macOS:**
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/superyngo/weni/main/install.sh | bash -s uninstall
+curl -fsSL https://raw.githubusercontent.com/superyngo/wenfo/main/install.sh | bash -s uninstall
 ```
 
 **Windows (PowerShell):**
 
 ```powershell
-irm https://raw.githubusercontent.com/superyngo/weni/main/install.ps1 | iex -Uninstall
+irm https://raw.githubusercontent.com/superyngo/wenfo/main/install.ps1 | iex -Uninstall
 ```
 
 或手動移除：
 
-- Linux/macOS: `rm ~/.local/bin/weni`
-- Windows: 刪除 `%LOCALAPPDATA%\Programs\weni` 目錄
+- Linux/macOS: `rm ~/.local/bin/wenfo`
+- Windows: 刪除 `%LOCALAPPDATA%\Programs\wenfo` 目錄
 
 ## 功能特性
 
@@ -388,72 +388,72 @@ irm https://raw.githubusercontent.com/superyngo/weni/main/install.ps1 | iex -Uni
 
 ```bash
 # 顯示所有資訊（包含 top 10 程序依 CPU 排序）
-weni
+wenfo
 
 # 顯示特定資訊
-weni --cpu --memory
-weni --system
-weni --battery
-weni --disk
-weni --network
-weni --temp
-weni --process
-weni --hosts
+wenfo --cpu --memory
+wenfo --system
+wenfo --battery
+wenfo --disk
+wenfo --network
+wenfo --temp
+wenfo --process
+wenfo --hosts
 
 # 組合顯示
-weni --cpu --memory --disk --temp
+wenfo --cpu --memory --disk --temp
 ```
 
 ### 程序監控
 
 ```bash
 # 顯示所有執行中程序
-weni --process
+wenfo --process
 
 # 顯示前 10 個程序（依記憶體排序）
-weni --process --top 10
+wenfo --process --top 10
 
 # 顯示前 10 個程序（依 CPU 使用率排序）
-weni --process --top 10 --sort-cpu
+wenfo --process --top 10 --sort-cpu
 ```
 
 ### Hosts 檔案
 
 ```bash
 # 顯示 hosts 檔案（過濾註解）
-weni --hosts
+wenfo --hosts
 
 # 顯示 hosts 檔案（包含註解）
-weni --hosts --show-comments
+wenfo --hosts --show-comments
 ```
 
 ### JSON 輸出
 
 ```bash
 # 輸出 JSON 格式（便於腳本整合）
-weni --json
+wenfo --json
 
 # 僅輸出特定資訊的 JSON
-weni --cpu --memory --json
+wenfo --cpu --memory --json
 ```
 
 ### 即時監控模式
 
 ```bash
 # 啟動監控模式（每 2 秒更新一次）
-weni --watch
+wenfo --watch
 
 # 自訂更新間隔（5 秒）
-weni --watch --interval 5
+wenfo --watch --interval 5
 
 # 監控特定資訊
-weni --cpu --memory --watch
+wenfo --cpu --memory --watch
 ```
 
 ### 取得說明
 
 ```bash
-weni --help
+wenfo --help
 ```
 
 ## 完整 CLI 選項
@@ -540,50 +540,50 @@ src/
 ### 範例 1: 快速檢視系統狀態
 
 ```bash
-weni --cpu --memory
+wenfo --cpu --memory
 ```
 
 ### 範例 2: 檢查磁盤空間
 
 ```bash
-weni --disk
+wenfo --disk
 ```
 
 ### 範例 3: 監控系統效能
 
 ```bash
-weni --cpu --memory --watch
+wenfo --cpu --memory --watch
 ```
 
 ### 範例 4: 導出完整系統資訊到 JSON
 
 ```bash
-weni --json > system-info.json
+wenfo --json > system-info.json
 ```
 
 ### 範例 5: 檢查網路流量
 
 ```bash
-weni --network
+wenfo --network
 ```
 
 ### 範例 6: 監控系統溫度
 
 ```bash
-weni --temp
+wenfo --temp
 # 注意: 溫度監控需要硬體和作業系統支援，Linux 系統通常有較好的支援
 ```
 
 ### 範例 7: 監控執行中程序
 
 ```bash
-weni --process --top 10 --sort-cpu
+wenfo --process --top 10 --sort-cpu
 ```
 
 ### 範例 8: 檢視 Hosts 檔案
 
 ```bash
-weni --hosts
+wenfo --hosts
 ```
 
 ## 授權

@@ -2,14 +2,19 @@ use anyhow::Result;
 use std::io::{self, Write};
 use std::thread;
 use std::time::Duration;
-use weni::{
-    BatteryInfo, DisksInfo, NetworkInfo, SystemInfo, TemperatureInfo, ProcessInfo, HostsInfo,
+use wenfo::{
     cli::CliArgs,
     display::{display_info, OutputFormat},
+    BatteryInfo, DisksInfo, HostsInfo, NetworkInfo, ProcessInfo, SystemInfo, TemperatureInfo,
 };
 
 fn main() -> Result<()> {
     let args = CliArgs::parse()?;
+
+    if args.version {
+        CliArgs::print_version();
+        return Ok(());
+    }
 
     if args.help {
         CliArgs::print_help();
@@ -24,7 +29,8 @@ fn main() -> Result<()> {
 }
 
 fn run_once(args: CliArgs) -> Result<()> {
-    let (system_info, battery_info, disks_info, network_info, temp_info, process_info, hosts_info) = collect_info(&args);
+    let (system_info, battery_info, disks_info, network_info, temp_info, process_info, hosts_info) =
+        collect_info(&args);
 
     let format = if args.json {
         OutputFormat::Json
@@ -32,7 +38,16 @@ fn run_once(args: CliArgs) -> Result<()> {
         OutputFormat::Text
     };
 
-    display_info(system_info, battery_info, disks_info, network_info, temp_info, process_info, hosts_info, format)?;
+    display_info(
+        system_info,
+        battery_info,
+        disks_info,
+        network_info,
+        temp_info,
+        process_info,
+        hosts_info,
+        format,
+    )?;
 
     Ok(())
 }
@@ -44,7 +59,15 @@ fn run_watch_mode(args: CliArgs) -> Result<()> {
 
     loop {
         clear_screen();
-        let (system_info, battery_info, disks_info, network_info, temp_info, process_info, hosts_info) = collect_info(&args);
+        let (
+            system_info,
+            battery_info,
+            disks_info,
+            network_info,
+            temp_info,
+            process_info,
+            hosts_info,
+        ) = collect_info(&args);
         display_info(
             system_info,
             battery_info,
@@ -55,13 +78,27 @@ fn run_watch_mode(args: CliArgs) -> Result<()> {
             hosts_info,
             OutputFormat::Text,
         )?;
-        println!("Press Ctrl+C to exit | Refreshing every {} seconds", args.interval);
+        println!(
+            "Press Ctrl+C to exit | Refreshing every {} seconds",
+            args.interval
+        );
         io::stdout().flush()?;
         thread::sleep(Duration::from_secs(args.interval));
     }
 }
 
-fn collect_info(args: &CliArgs) -> (SystemInfo, Option<BatteryInfo>, Option<DisksInfo>, Option<NetworkInfo>, Option<TemperatureInfo>, Option<ProcessInfo>, Option<HostsInfo>) {
+#[allow(clippy::type_complexity)]
+fn collect_info(
+    args: &CliArgs,
+) -> (
+    SystemInfo,
+    Option<BatteryInfo>,
+    Option<DisksInfo>,
+    Option<NetworkInfo>,
+    Option<TemperatureInfo>,
+    Option<ProcessInfo>,
+    Option<HostsInfo>,
+) {
     let collect_cpu = args.show_all || args.show_cpu;
     let collect_memory = args.show_all || args.show_memory;
     let collect_system = args.show_all || args.show_system;
@@ -117,7 +154,15 @@ fn collect_info(args: &CliArgs) -> (SystemInfo, Option<BatteryInfo>, Option<Disk
         None
     };
 
-    (system_info, battery_info, disks_info, network_info, temp_info, process_info, hosts_info)
+    (
+        system_info,
+        battery_info,
+        disks_info,
+        network_info,
+        temp_info,
+        process_info,
+        hosts_info,
+    )
 }
 
 fn clear_screen() {

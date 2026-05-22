@@ -24,41 +24,41 @@ jobs:
           # Linux builds
           - os: ubuntu-latest
             target: x86_64-unknown-linux-gnu
-            artifact_name: weni
-            asset_name: weni-linux-x86_64
+            artifact_name: wenfo
+            asset_name: wenfo-linux-x86_64
           - os: ubuntu-latest
             target: i686-unknown-linux-gnu
-            artifact_name: weni
-            asset_name: weni-linux-i686
+            artifact_name: wenfo
+            asset_name: wenfo-linux-i686
           - os: ubuntu-latest
             target: x86_64-unknown-linux-musl
-            artifact_name: weni
-            asset_name: weni-linux-x86_64-musl
+            artifact_name: wenfo
+            asset_name: wenfo-linux-x86_64-musl
           - os: ubuntu-latest
             target: i686-unknown-linux-musl
-            artifact_name: weni
-            asset_name: weni-linux-i686-musl
+            artifact_name: wenfo
+            asset_name: wenfo-linux-i686-musl
           - os: ubuntu-latest
             target: armv7-unknown-linux-gnueabihf
-            artifact_name: weni
-            asset_name: weni-linux-armv7
+            artifact_name: wenfo
+            asset_name: wenfo-linux-armv7
           - os: ubuntu-latest
             target: armv7-unknown-linux-musleabihf
-            artifact_name: weni
-            asset_name: weni-linux-armv7-musl
+            artifact_name: wenfo
+            asset_name: wenfo-linux-armv7-musl
           - os: ubuntu-latest
             target: aarch64-unknown-linux-gnu
-            artifact_name: weni
-            asset_name: weni-linux-aarch64
+            artifact_name: wenfo
+            asset_name: wenfo-linux-aarch64
           - os: ubuntu-latest
             target: aarch64-unknown-linux-musl
-            artifact_name: weni
-            asset_name: weni-linux-aarch64-musl
+            artifact_name: wenfo
+            asset_name: wenfo-linux-aarch64-musl
           # Windows builds - 使用溫和優化以避免防毒軟體誤報
           - os: windows-latest
             target: x86_64-pc-windows-msvc
-            artifact_name: weni.exe
-            asset_name: weni-windows-x86_64.exe
+            artifact_name: wenfo.exe
+            asset_name: wenfo-windows-x86_64.exe
             rustflags: "-C target-feature=+crt-static"
             opt_level: "3"
             lto: "thin"
@@ -67,8 +67,8 @@ jobs:
             panic: "unwind"
           - os: windows-latest
             target: i686-pc-windows-msvc
-            artifact_name: weni.exe
-            asset_name: weni-windows-i686.exe
+            artifact_name: wenfo.exe
+            asset_name: wenfo-windows-i686.exe
             rustflags: "-C target-feature=+crt-static"
             opt_level: "3"
             lto: "thin"
@@ -78,12 +78,12 @@ jobs:
           # macOS builds
           - os: macos-15-intel
             target: x86_64-apple-darwin
-            artifact_name: weni
-            asset_name: weni-macos-x86_64
+            artifact_name: wenfo
+            asset_name: wenfo-macos-x86_64
           - os: macos-latest
             target: aarch64-apple-darwin
-            artifact_name: weni
-            asset_name: weni-macos-aarch64
+            artifact_name: wenfo
+            asset_name: wenfo-macos-aarch64
 
     steps:
       - name: Checkout code
@@ -231,7 +231,7 @@ jobs:
           for dir in artifacts/*; do
             if [ -d "$dir" ] && [[ "$dir" == *"windows"* ]]; then
               asset_name=$(basename "$dir")
-              exe_file="$dir/weni.exe"
+              exe_file="$dir/wenfo.exe"
               if [ -f "$exe_file" ]; then
                 cp "$exe_file" "release_files/$asset_name"
               fi
@@ -283,22 +283,22 @@ jobs:
             Please download the appropriate version for your system from below.
 
             ### Windows
-            - `weni-windows-x86_64.exe` - Windows 64-bit
-            - `weni-windows-i686.exe` - Windows 32-bit
+            - `wenfo-windows-x86_64.exe` - Windows 64-bit
+            - `wenfo-windows-i686.exe` - Windows 32-bit
 
             ### Linux
-            - `weni-linux-x86_64.tar.gz` - Linux x86_64 (glibc)
-            - `weni-linux-i686.tar.gz` - Linux i686 (glibc)
-            - `weni-linux-x86_64-musl.tar.gz` - Linux x86_64 (musl, static)
-            - `weni-linux-i686-musl.tar.gz` - Linux i686 (musl, static)
-            - `weni-linux-armv7.tar.gz` - Linux ARMv7
-            - `weni-linux-armv7-musl.tar.gz` - Linux ARMv7 (musl, static)
-            - `weni-linux-aarch64.tar.gz` - Linux ARM64
-            - `weni-linux-aarch64-musl.tar.gz` - Linux ARM64 (musl, static)
+            - `wenfo-linux-x86_64.tar.gz` - Linux x86_64 (glibc)
+            - `wenfo-linux-i686.tar.gz` - Linux i686 (glibc)
+            - `wenfo-linux-x86_64-musl.tar.gz` - Linux x86_64 (musl, static)
+            - `wenfo-linux-i686-musl.tar.gz` - Linux i686 (musl, static)
+            - `wenfo-linux-armv7.tar.gz` - Linux ARMv7
+            - `wenfo-linux-armv7-musl.tar.gz` - Linux ARMv7 (musl, static)
+            - `wenfo-linux-aarch64.tar.gz` - Linux ARM64
+            - `wenfo-linux-aarch64-musl.tar.gz` - Linux ARM64 (musl, static)
 
             ### macOS
-            - `weni-macos-x86_64.tar.gz` - macOS Intel
-            - `weni-macos-aarch64.tar.gz` - macOS Apple Silicon
+            - `wenfo-macos-x86_64.tar.gz` - macOS Intel
+            - `wenfo-macos-aarch64.tar.gz` - macOS Apple Silicon
 
             ## 🔒 檔案校驗 / File Verification
 

@@ -1,3 +1,3 @@
 mod formatter;
 
-pub use formatter::{OutputFormat, display_info};
+pub use formatter::{display_info, OutputFormat};

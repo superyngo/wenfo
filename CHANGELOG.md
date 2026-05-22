@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+## [0.3.0] - 2026-05-22
+
+### Added
+
+- `-V, --version` 參數：顯示版本資訊（從 `Cargo.toml` 自動取得）
+
+### Changed
+
+- 專案名稱由 `weni` 重新命名為 `wenfo`（套件名、執行檔、安裝腳本、Release 產物、文件全面更新）
+
 ## [0.2.0] - 2025-12-02
 
 ### Added

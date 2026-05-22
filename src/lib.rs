@@ -1,6 +1,8 @@
+pub mod cli;
 pub mod collectors;
 pub mod display;
-pub mod cli;
 
-pub use collectors::{SystemInfo, BatteryInfo, DisksInfo, NetworkInfo, TemperatureInfo, ProcessInfo, HostsInfo};
-pub use display::{OutputFormat, display_info};
+pub use collectors::{
+    BatteryInfo, DisksInfo, HostsInfo, NetworkInfo, ProcessInfo, SystemInfo, TemperatureInfo,
+};
+pub use display::{display_info, OutputFormat};

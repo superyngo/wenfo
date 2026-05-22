@@ -19,6 +19,7 @@ pub struct CliArgs {
     pub process_sort_cpu: bool,
     pub hosts_filter_comments: bool,
     pub help: bool,
+    pub version: bool,
 }
 
 impl CliArgs {
@@ -26,8 +27,9 @@ impl CliArgs {
         let mut args = Arguments::from_env();
 
         let help = args.contains(["-h", "--help"]);
+        let version = args.contains(["-V", "--version"]);
 
-        if help {
+        if help || version {
             return Ok(Self {
                 show_cpu: false,
                 show_memory: false,
@@ -45,7 +47,8 @@ impl CliArgs {
                 process_top: None,
                 process_sort_cpu: false,
                 hosts_filter_comments: true,
-                help: true,
+                help,
+                version,
             });
         }
 
@@ -65,7 +68,15 @@ impl CliArgs {
         let process_sort_cpu = args.contains("--sort-cpu");
         let hosts_filter_comments = !args.contains("--show-comments");
 
-        let show_all = !show_cpu && !show_memory && !show_system && !show_battery && !show_disk && !show_network && !show_temp && !show_process && !show_hosts;
+        let show_all = !show_cpu
+            && !show_memory
+            && !show_system
+            && !show_battery
+            && !show_disk
+            && !show_network
+            && !show_temp
+            && !show_process
+            && !show_hosts;
 
         let remaining = args.finish();
         if !remaining.is_empty() {
@@ -90,15 +101,20 @@ impl CliArgs {
             process_sort_cpu,
             hosts_filter_comments,
             help,
+            version,
         })
+    }
+
+    pub fn print_version() {
+        println!("wenfo {}", env!("CARGO_PKG_VERSION"));
     }
 
     pub fn print_help() {
         println!(
-            r#"weni - Lightweight cross-platform system information tool
+            r#"wenfo - Lightweight cross-platform system information tool
 
 USAGE:
-    weni [OPTIONS]
+    wenfo [OPTIONS]
 
 OPTIONS:
     --cpu                 Show CPU information
@@ -116,6 +132,7 @@ GENERAL OPTIONS:
     -w, --watch           Enable watch mode (live updates)
     -i, --interval <SEC>  Update interval in seconds (default: 2)
     -h, --help            Print help information
+    -V, --version         Print version information
 
 PROCESS OPTIONS:
     --top <N>             Show only top N processes (sorted by resource usage)
@@ -125,16 +142,16 @@ HOSTS OPTIONS:
     --show-comments       Show comments in hosts file (default: filter out)
 
 EXAMPLES:
-    weni                        # Show all information
-    weni --cpu --memory         # Show only CPU and memory
-    weni --temp                 # Show temperature information
-    weni --process              # Show all running processes
-    weni --process --top 10     # Show top 10 processes
-    weni --process --sort-cpu   # Show processes sorted by CPU usage
-    weni --hosts                # Show hosts file contents
-    weni --json                 # Output all info as JSON
-    weni --watch                # Live monitoring mode
-    weni --watch --interval 5   # Monitor with 5 second interval
+    wenfo                        # Show all information
+    wenfo --cpu --memory         # Show only CPU and memory
+    wenfo --temp                 # Show temperature information
+    wenfo --process              # Show all running processes
+    wenfo --process --top 10     # Show top 10 processes
+    wenfo --process --sort-cpu   # Show processes sorted by CPU usage
+    wenfo --hosts                # Show hosts file contents
+    wenfo --json                 # Output all info as JSON
+    wenfo --watch                # Live monitoring mode
+    wenfo --watch --interval 5   # Monitor with 5 second interval
 "#
         );
     }
